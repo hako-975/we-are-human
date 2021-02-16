@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Water
+  - firstNPC
+  - secondNPC
+  - Bridge
+  - WoodBlockObject
   layers:
   - Default
   - TransparentFX

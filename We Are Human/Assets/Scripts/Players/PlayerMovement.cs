@@ -25,9 +25,19 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     
     public Transform playerSpawnPoint;
-    
+
+    [HideInInspector]
+    public float horizontal;
+
+    [HideInInspector]
+    public float vertical;
+
     [HideInInspector]
     public Animator animator;
+
+    QuestManager questManager;
+
+    GoalType goalType;
 
     protected float fallZone = -50f;
     
@@ -40,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-
+        questManager = FindObjectOfType<QuestManager>();
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -54,6 +64,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (questManager.questGiver != null)
+        {
+            if (questManager.questGiver.questGoal.IsReached())
+            {
+                questManager.Complete(questManager.questGiver.questGoal.goalType);
+            }
+        }
+        
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             Cursor.lockState = CursorLockMode.Confined;
@@ -71,8 +89,8 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }        
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direction.magnitude >= 0.1f)
