@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,19 +26,21 @@ public class PlayerMovement : MonoBehaviour
     
     public Transform playerSpawnPoint;
     
-    protected float fallZone = -50f;
+    [HideInInspector]
+    public Animator animator;
 
+    protected float fallZone = -50f;
+    
+    Vector3 velocity;
+    
     float turnAroundVelocity;
 
-    Vector3 velocity;
-
     bool isGrounded;
-
-    Animator animator;
-
+    
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -50,6 +54,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         
         if (isGrounded && velocity.y < 0)
@@ -79,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Animation Jump
         animator.SetBool("isGrounded", isGrounded);
-
+        
         // jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
