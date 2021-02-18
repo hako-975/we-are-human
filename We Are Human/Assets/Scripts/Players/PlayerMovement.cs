@@ -44,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
     
     float turnAroundVelocity;
 
-    bool isGrounded;
+    [HideInInspector]
+    public bool isGrounded;
     
     void Start()
     {
