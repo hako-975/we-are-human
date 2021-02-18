@@ -9,6 +9,12 @@ TagManager:
   - secondNPC
   - Bridge
   - WoodBlockObject
+  - thirdNPC
+  - fourthNPC
+  - pickaxe
+  - stone
+  - thirdNPC_2
+  - fourthNPC_2
   layers:
   - Default
   - TransparentFX

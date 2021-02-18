@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public DialogueTrigger dialogueTrigger;
+    DialogueTrigger dialogueTrigger;
 
     public GameObject interactText;
 
     public bool haveQuest;
 
+    [HideInInspector]
     public QuestGiver questGiver;
 
-    public QuestManager questManager;
+    QuestManager questManager;
     
     private bool onTriggerEnter = false;
+
+    private void Start()
+    {
+        dialogueTrigger = GetComponent<DialogueTrigger>();
+        questGiver = GetComponent<QuestGiver>();
+        questManager = FindObjectOfType<QuestManager>();
+    }
 
     private void Update()
     {
@@ -23,6 +31,12 @@ public class NPC : MonoBehaviour
             if (haveQuest)
             {
                 questManager.questGiver = questGiver;
+
+                if (questManager.questGiver.questGoal.goalType == GoalType.Delivery)
+                {
+                    questManager.questGiver.questGoal.ask = true;
+                }
+
                 dialogueTrigger.TriggerDialogue(haveQuest, questGiver.questGoal.goalType);
             }
             else

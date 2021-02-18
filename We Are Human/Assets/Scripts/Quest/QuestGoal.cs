@@ -9,10 +9,24 @@ public class QuestGoal
 
     public int requiredAmount;
     public int currentAmount;
+    public bool ask = false;
 
     public bool IsReached()
     {
-        return (currentAmount >= requiredAmount);
+        if (goalType == GoalType.Kill || goalType == GoalType.Gathering)
+        {
+            return (currentAmount >= requiredAmount);
+        }
+
+        if (goalType == GoalType.Delivery)
+        {
+            if (ask == true)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void EnemyKilled()
@@ -35,7 +49,7 @@ public class QuestGoal
     {
         if (goalType == GoalType.Delivery)
         {
-            currentAmount += 1;
+            ask = true;
         }
     }
 }

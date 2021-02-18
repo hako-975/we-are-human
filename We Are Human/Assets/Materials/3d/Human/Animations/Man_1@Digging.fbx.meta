@@ -1,30 +1,12 @@
 fileFormatVersion: 2
-guid: a5252e994734fcb46bb5d4d576fac79e
+guid: 004fc96fd3910264c8b63cf0bf5471e9
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PT_Medieval_Eyes_mat
-    second: {fileID: 2100000, guid: 739382f426e72194dbd7130aa11dfaf3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PT_Medieval_Hair_mat
-    second: {fileID: 2100000, guid: 49026a99208f7e44e9d94dc435b3b0ac, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PT_Medieval_Skin_mat
-    second: {fileID: 2100000, guid: 4fb9e13136781ab4c9d2891ef7d049c0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PT_Medieval_mat
-    second: {fileID: -2983802615078177263, guid: 5b764b93fa0ecc84c9da3b77e7681eab,
-      type: 3}
+      74: -203655887218126122
+    second: Man_Digging
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -51,7 +33,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Man_Digging
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 290
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -863,11 +874,12 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: a5252e994734fcb46bb5d4d576fac79e,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

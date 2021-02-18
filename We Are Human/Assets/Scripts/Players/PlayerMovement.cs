@@ -37,11 +37,10 @@ public class PlayerMovement : MonoBehaviour
 
     QuestManager questManager;
 
-    GoalType goalType;
-
     protected float fallZone = -50f;
     
-    Vector3 velocity;
+    [HideInInspector]
+    public Vector3 velocity;
     
     float turnAroundVelocity;
 

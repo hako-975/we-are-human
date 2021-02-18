@@ -36,6 +36,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, bool haveQuest, GoalType goalType)
     {
+        playerMovement.GetComponent<CharacterController>().enabled = false;
+
         if (haveQuest)
         {
             goalTypeQuestGiver = goalType;
@@ -101,6 +103,7 @@ public class DialogueManager : MonoBehaviour
             {
                 cam.gameObject.SetActive(true);
                 Cursor.lockState = CursorLockMode.Locked;
+                playerMovement.GetComponent<CharacterController>().enabled = true;
             }
         }
         else
