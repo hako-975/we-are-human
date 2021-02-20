@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
-    public AudioMixer audioMixerBGM;
-    public Slider sliderVolume;
-    public Slider sliderBGM;
-    public Slider cameraDistance;
-    public Slider sensitivityTouchField;
-    public Dropdown dropdownQuality;
-
+    //public AudioMixer audioMixer;
+    //public AudioMixer audioMixerBGM;
+    //public Slider sliderVolume;
+    //public Slider sliderBGM;
+    //public Slider cameraDistance;
+    //public Slider sensitivityTouchField;
+    public TMP_Dropdown dropdownQuality;
+    
+    /*
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
@@ -25,13 +27,14 @@ public class SettingsMenu : MonoBehaviour
         audioMixerBGM.SetFloat("bgm", bgm);
         PlayerPrefs.SetFloat("bgm", bgm);
     }
+    */
 
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
         PlayerPrefs.SetInt("qualityIndex", qualityIndex);
     }
-
+    /*
     public void SetCameraDistance(float cameraDistance)
     {
         PlayerPrefs.SetFloat("cameraDistance", cameraDistance);
@@ -50,7 +53,7 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetFloat("cameraDistance", 4f);
         PlayerPrefs.SetFloat("sensitivityTouchField", 5f);
     }
-
+    */
     private void Update()
     {
         if (PlayerPrefs.GetFloat("cameraDistance") == 0f)
@@ -63,11 +66,11 @@ public class SettingsMenu : MonoBehaviour
             PlayerPrefs.SetFloat("sensitivityTouchField", 5f);
         }
 
-        sliderVolume.value = PlayerPrefs.GetFloat("volume");
-        sliderBGM.value = PlayerPrefs.GetFloat("bgm");
+        //sliderVolume.value = PlayerPrefs.GetFloat("volume");
+        //sliderBGM.value = PlayerPrefs.GetFloat("bgm");
         dropdownQuality.value = PlayerPrefs.GetInt("qualityIndex");
-        cameraDistance.value = PlayerPrefs.GetFloat("cameraDistance");
-        sensitivityTouchField.value = PlayerPrefs.GetFloat("sensitivityTouchField");
+        //cameraDistance.value = PlayerPrefs.GetFloat("cameraDistance");
+        //sensitivityTouchField.value = PlayerPrefs.GetFloat("sensitivityTouchField");
     }
 
 }

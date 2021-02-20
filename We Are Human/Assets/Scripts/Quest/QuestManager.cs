@@ -52,6 +52,9 @@ public class QuestManager : MonoBehaviour
                 GameObject thirdNpc = GameObject.FindGameObjectWithTag("thirdNPC");
                 thirdNpc.GetComponent<Animator>().SetBool("isIdle", true);
 
+                GameObject thirdNpc_2 = GameObject.FindGameObjectWithTag("thirdNPC_2");
+                thirdNpc_2.GetComponent<Animator>().SetBool("isIdle", true);
+
                 GameObject fourthNpc = GameObject.FindGameObjectWithTag("fourthNPC");
                 fourthNpc.GetComponent<CapsuleCollider>().isTrigger = true;
                 fourthNpc.GetComponent<QuestGiver>().questActive = true;
@@ -144,8 +147,10 @@ public class QuestManager : MonoBehaviour
         }
         else if (GameObject.FindGameObjectWithTag("thirdNPC_2") == true)
         {
-            GameObject stone = GameObject.FindGameObjectWithTag("stone");
-            stone.transform.position = new Vector3(stone.transform.position.x, -100f, stone.transform.position.z);
+            GameObject[] stone = GameObject.FindGameObjectsWithTag("stone");
+            stone[0].gameObject.SetActive(false);
+            stone[1].gameObject.SetActive(false);
+            stone[2].gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("thirdNPC_2").gameObject.SetActive(false);
         }
 

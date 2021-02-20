@@ -5,21 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject menuPanel;
-
     void Awake()
     {
         Time.timeScale = 1;
-    }
-
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.Confined;
-            menuPanel.SetActive(true);
-            PauseGame();
-        }
     }
 
     public void ResumeGame()

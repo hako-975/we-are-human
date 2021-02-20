@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class FootSteps : MonoBehaviour
 {
-    new AudioSource audio;
-    Rigidbody rb;
-    PlayerMovement Character;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Character = GetComponent<PlayerMovement>();
-        audio = GetComponent<AudioSource>();
-        rb = GetComponent<Rigidbody>();
-    }
+    public AudioClip walkSound;
+    public float footstepDelay;
+    private float nextFootstep = 0;
 
-    // Update is called once per frame
     void Update()
     {
-        if (Character.isGrounded == true && rb.velocity.magnitude > 2f && audio.isPlaying == false)
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S)
+          || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
         {
-            audio.volume = Random.Range(0.3f, 0.5f);
-            audio.pitch = Random.Range(1f, 1.2f);
-            audio.Play();
+            nextFootstep -= Time.deltaTime;
+            if (nextFootstep <= 0)
+            {
+                GetComponent<AudioSource>().PlayOneShot(walkSound, 1.5f);
+                nextFootstep += footstepDelay;
+            }
         }
     }
 }
